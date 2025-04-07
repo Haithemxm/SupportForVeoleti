@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Well Soon, My Love</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <section id="welcome" class="section">
+        <div id="particles-js"></div>
+        <div class="welcome-content">
+            <h1 class="main-title">You've been strong... and I'm so proud of you.</h1>
+            <p class="subtext">This little space is my way of saying thank you for holding on, for being amazing, and for just being you.</p>
+        </div>
+    </section>
+
+    <!-- Personal Message Section -->
+    <section id="message" class="section">
+        <div class="letter-container">
+            <div class="letter-content">
+                <h2>My Veoleti,</h2>
+                <div class="letter-paragraphs"></div>
+                <p class="signature">— With all my heart,<br>Your Haithem.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Book Section -->
+    <section id="photobook" class="section">
+        <h2 class="book-title">Every moment with you... is a page I'll never forget.</h2>
+        <div class="scene">
+            <div class="book-wrap">
+                <div id="book">
+                    <!-- Front Cover -->
+                    <div class="hard front-cover">
+                        <div class="page-side">
+                            <img src="PHOTOS-01.png" alt="Cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Pages -->
+                    <div class="page">
+                        <div class="page-side front">
+                            <img src="PHOTOS-02.png" alt="Photo 2">
+                        </div>
+                        <div class="page-side back">
+                            <img src="PHOTOS-03.png" alt="Photo 3">
+                        </div>
+                    </div>
+                    
+                    <div class="page">
+                        <div class="page-side front">
+                            <img src="PHOTOS-04.png" alt="Photo 4">
+                        </div>
+                        <div class="page-side back">
+                            <img src="PHOTOS-05.png" alt="Photo 5">
+                        </div>
+                    </div>
+                    
+                    <div class="page">
+                        <div class="page-side front">
+                            <img src="PHOTOS-06.png" alt="Photo 6">
+                        </div>
+                        <div class="page-side back">
+                            <img src="PHOTOS-07.png" alt="Photo 7">
+                        </div>
+                    </div>
+                    
+                    <div class="page">
+                        <div class="page-side front">
+                            <img src="PHOTOS-08.png" alt="Photo 8">
+                        </div>
+                        <div class="page-side back">
+                            <img src="PHOTOS-09.png" alt="Photo 9">
+                        </div>
+                    </div>
+                    
+                    <div class="page">
+                        <div class="page-side front">
+                            <img src="PHOTOS-10.png" alt="Photo 10">
+                        </div>
+                        <div class="page-side back">
+                            <img src="PHOTOS-11.png" alt="Photo 11">
+                        </div>
+                    </div>
+                    
+                    <!-- Back Cover -->
+                    <div class="hard back-cover">
+                        <div class="page-side"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Controls -->
+            <div class="book-controls">
+                <button class="prev-button" onclick="previousPage()">❮</button>
+                <button class="next-button" onclick="nextPage()">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section id="promise" class="section">
+        <div class="promise-content">
+            <p class="promise-text">I'm here for you. Always. Through hospitals or happiness, cloudy days or the brightest ones — I'm not going anywhere.</p>
+            <div class="beating-heart"></div>
+        </div>
+    </section>
+
+    <!-- Final Message Section -->
+    <section id="final" class="section">
+        <div class="final-message">
+            <p class="final-text">Rest well, my love. Heal. You are stronger than you think. And no matter what, I'll be here… waiting with love and warm hugs.</p>
+            <button id="hugButton" class="hug-button">
+                <span class="button-text">Give me a hug!</span>
+                <span class="heart">❤</span>
+            </button>
+            
+            <div class="hug-content">
+                <div class="hug-gif-wrapper">
+                    <img src="hug.gif" alt="Virtual Hug" class="hug-gif hidden">
+                </div>
+                
+                <div class="message-wrapper">
+                    <div class="message hidden">
+                        <span class="message-heart">❤</span>
+                        I promise to always be there for you
+                    </div>
+                    <div class="message hidden">
+                        <span class="message-heart">❤</span>
+                        To cherish every moment with you
+                    </div>
+                    <div class="message hidden">
+                        <span class="message-heart">❤</span>
+                        And to make you smile, every single day
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Arabic Message -->
+    <section id="final-arabic" class="section">
+        <div class="arabic-message-container">
+            <div class="floating-hearts">
+                <span class="floating-heart">💖</span>
+                <span class="floating-heart">💝</span>
+                <span class="floating-heart">💗</span>
+            </div>
+            <p class="arabic-message">
+                أخيراً، إن شاء الله الهدية أسعدتك ولو شوي، وأتمنى لك دايمًا الصحة والعافية. يارب اهتمامي الزايد و المفرط تحبينه مثل حب قلبي وقلبك، وفعلاً أموت فيك يا ملكتي.
+                <br><br>
+                والله شعوري تجاهك كبير وما أقدر أوصفه، وكنت أحاول أهون عليك طول تعبك و وجودك بالمستشفى، والحمد لله إنك تتحسنين. خوفي ورسايلي الكثيره بس لأني أحبك وأبيك دايم بخير وماني قريب منك عشان اعرف وش صاير، بس دايما بعدها تطمنيني أحس إني أسعد إنسان طفلكككك😭💖.
+                <br><br>
+                يارب نحب بعض دايما، ونكون جنب بعض، ويكتب لنا لقاء قريب. وخروجك وجودك بخير وجنبي هو أكبر نعمة.
+            </p>
+            <div class="floating-hearts">
+                <span class="floating-heart">💝</span>
+                <span class="floating-heart">💖</span>
+                <span class="floating-heart">💗</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Controls -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-toggle">
+            🎵
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="music.mp3" type="audio/mpeg" preload="auto">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
