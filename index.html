@@ -14,8 +14,13 @@
     <section id="welcome" class="section">
         <div id="particles-js"></div>
         <div class="welcome-content">
+            <div class="welcome-heart-icon">❤️</div>
             <h1 class="main-title">You've been strong... and I'm so proud of you.</h1>
             <p class="subtext">This little space is my way of saying thank you for holding on, for being amazing, and for just being you.</p>
+            <div class="welcome-scroll-hint">
+                <span class="scroll-text">Scroll to begin our journey</span>
+                <span class="scroll-arrow">↓</span>
+            </div>
         </div>
     </section>
 
@@ -184,39 +189,69 @@
 
     <!-- Promise Section -->
     <section id="promise" class="section">
+        <div class="promise-background">
+            <div class="promise-stars">
+                <div class="promise-star star-1"></div>
+                <div class="promise-star star-2"></div>
+                <div class="promise-star star-3"></div>
+                <div class="promise-star star-4"></div>
+                <div class="promise-star star-5"></div>
+            </div>
+        </div>
         <div class="promise-content">
+            <div class="promise-title">My Promise</div>
             <p class="promise-text">I'm here for you. Always. Through hospitals or happiness, cloudy days or the brightest ones — I'm not going anywhere.</p>
-            <div class="beating-heart"></div>
+            <div class="promise-heart-container">
+                <div class="beating-heart">❤️</div>
+                <div class="heart-pulse pulse-1"></div>
+                <div class="heart-pulse pulse-2"></div>
+                <div class="heart-pulse pulse-3"></div>
+            </div>
         </div>
     </section>
 
     <!-- Final Message Section -->
     <section id="final" class="section">
-        <div class="final-message">
-            <p class="final-text">Rest well, my love. Heal. You are stronger than you think. And no matter what, I'll be here… waiting with love and warm hugs.</p>
-            <button id="hugButton" class="hug-button">
-                <span class="button-text">Give me a hug!</span>
-                <span class="heart">❤</span>
-            </button>
+        <div class="final-background">
+            <div class="final-decoration top-left"></div>
+            <div class="final-decoration top-right"></div>
+            <div class="final-decoration bottom-left"></div>
+            <div class="final-decoration bottom-right"></div>
+        </div>
+        <div class="final-message-container">
+            <div class="final-message">
+                <div class="final-title">Before You Go...</div>
+                <p class="final-text">Rest well, my love. Heal. You are stronger than you think. And no matter what, I'll be here… waiting with love and warm hugs.</p>
+                <button id="hugButton" class="hug-button">
+                    <span class="button-text">Give me a hug!</span>
+                    <span class="heart">❤️</span>
+                </button>
 
-            <div class="hug-content">
-                <div class="hug-gif-wrapper">
-                    <img src="hug.gif" alt="Virtual Hug" class="hug-gif hidden">
+                <div class="hug-content">
+                    <div class="hug-gif-wrapper">
+                        <img src="hug.gif" alt="Virtual Hug" class="hug-gif hidden">
+                    </div>
+
+                    <div class="message-wrapper">
+                        <div class="message hidden">
+                            <span class="message-heart">❤️</span>
+                            I promise to always be there for you
+                        </div>
+                        <div class="message hidden">
+                            <span class="message-heart">❤️</span>
+                            To cherish every moment with you
+                        </div>
+                        <div class="message hidden">
+                            <span class="message-heart">❤️</span>
+                            And to make you smile, every single day
+                        </div>
+                    </div>
                 </div>
 
-                <div class="message-wrapper">
-                    <div class="message hidden">
-                        <span class="message-heart">❤</span>
-                        I promise to always be there for you
-                    </div>
-                    <div class="message hidden">
-                        <span class="message-heart">❤</span>
-                        To cherish every moment with you
-                    </div>
-                    <div class="message hidden">
-                        <span class="message-heart">❤</span>
-                        And to make you smile, every single day
-                    </div>
+                <div class="final-heart-row">
+                    <span class="final-heart">❤️</span>
+                    <span class="final-heart">❤️</span>
+                    <span class="final-heart">❤️</span>
                 </div>
             </div>
         </div>
@@ -293,14 +328,32 @@
         </div>
     </section>
 
-    <!-- Music Controls -->
-    <div class="music-control">
-        <button id="musicToggle" class="music-toggle">
-            🎵
-        </button>
-        <audio id="bgMusic" loop>
-            <source src="music.mp3" type="audio/mpeg" preload="auto">
-        </audio>
+    <!-- Navigation and Controls -->
+    <div class="navigation-controls">
+        <!-- Section Navigation -->
+        <div class="section-nav">
+            <button class="nav-dot" data-section="welcome" title="Welcome"></button>
+            <button class="nav-dot" data-section="message" title="Personal Message"></button>
+            <button class="nav-dot" data-section="photobook" title="Photo Book"></button>
+            <button class="nav-dot" data-section="promise" title="Promise"></button>
+            <button class="nav-dot" data-section="final" title="Final Message"></button>
+            <button class="nav-dot" data-section="final-arabic" title="Arabic Message"></button>
+        </div>
+
+        <!-- Music Controls -->
+        <div class="music-control">
+            <button id="musicToggle" class="music-toggle">
+                🎵
+            </button>
+            <audio id="bgMusic" loop>
+                <source src="music.mp3" type="audio/mpeg" preload="auto">
+            </audio>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
     </div>
 
     <script src="script.js"></script>

@@ -1,4 +1,153 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize navigation and progress tracking
+    initNavigation();
+
+    // Function to initialize navigation and progress tracking
+    function initNavigation() {
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const progressFill = document.querySelector('.progress-fill');
+
+        // Set up intersection observer for sections
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Get the current section id
+                    const currentSection = entry.target.id;
+
+                    // Update active nav dot
+                    navDots.forEach(dot => {
+                        if (dot.dataset.section === currentSection) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+
+                    // Add a special class to the body for section-specific styling
+                    document.body.className = 'viewing-' + currentSection;
+
+                    // Add special entrance animations for sections as they come into view
+                    addSectionEntranceEffects(currentSection);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all sections
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Add click event to nav dots
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetSection = document.getElementById(dot.dataset.section);
+                if (targetSection) {
+                    // Add a subtle page transition effect
+                    document.body.classList.add('page-transitioning');
+
+                    // Remove the transition class after animation completes
+                    setTimeout(() => {
+                        document.body.classList.remove('page-transitioning');
+                    }, 800);
+
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update progress bar on scroll
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.offsetHeight;
+            const winHeight = window.innerHeight;
+            const scrollPercent = scrollTop / (docHeight - winHeight);
+            progressFill.style.width = scrollPercent * 100 + '%';
+        });
+
+        // Add smooth scroll behavior to the whole document
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add transition styles for page transitions
+        const style = document.createElement('style');
+        style.textContent = `
+            .page-transitioning {
+                animation: page-transition 0.8s ease;
+            }
+
+            @keyframes page-transition {
+                0% { opacity: 1; }
+                50% { opacity: 0.8; }
+                100% { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Function to add special entrance effects for each section
+    function addSectionEntranceEffects(sectionId) {
+        switch(sectionId) {
+            case 'welcome':
+                // Welcome section already has animations
+                break;
+
+            case 'message':
+                // Add a subtle animation to the letter
+                const letterContainer = document.querySelector('.letter-container');
+                if (letterContainer) {
+                    letterContainer.style.animation = 'none';
+                    setTimeout(() => {
+                        letterContainer.style.animation = 'container-entrance 1.5s ease-out forwards';
+                    }, 100);
+                }
+                break;
+
+            case 'photobook':
+                // Add a subtle animation to the book
+                const bookWrap = document.querySelector('.book-wrap');
+                if (bookWrap) {
+                    bookWrap.style.animation = 'none';
+                    setTimeout(() => {
+                        bookWrap.style.animation = 'book-entrance 1.5s ease-out forwards';
+                    }, 100);
+                }
+                break;
+
+            case 'promise':
+                // Add a subtle animation to the promise content
+                const promiseContent = document.querySelector('.promise-content');
+                if (promiseContent) {
+                    promiseContent.style.animation = 'none';
+                    setTimeout(() => {
+                        promiseContent.style.animation = 'message-entrance 1.2s ease-out forwards';
+                    }, 100);
+                }
+                break;
+
+            case 'final':
+                // Add a subtle animation to the final message
+                const finalMessage = document.querySelector('.final-message');
+                if (finalMessage) {
+                    finalMessage.style.animation = 'none';
+                    setTimeout(() => {
+                        finalMessage.style.animation = 'message-entrance 1.2s ease-out forwards';
+                    }, 100);
+                }
+                break;
+
+            case 'final-arabic':
+                // Add a subtle animation to the Arabic message container
+                const arabicContainer = document.querySelector('.arabic-message-container');
+                if (arabicContainer) {
+                    arabicContainer.style.animation = 'none';
+                    setTimeout(() => {
+                        arabicContainer.style.animation = 'container-entrance 1.5s ease-out forwards';
+                    }, 100);
+                }
+                break;
+        }
+    }
+
     // Message content
     const letterContent = [
         "These last two days… they were heavy. The world felt a little quieter, a little colder, while you were in the hospital. And I realized something deep — that no matter what's happening, all I want is for your heart to beat strong, for your eyes to shine again, and for your smile to light up my days like it always does.",
